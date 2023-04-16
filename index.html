@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Pannel</title>
+    <title>ورود</title>
 
     <link href="./dist/output.css" rel="stylesheet">
     <script src="./src/js/js.js"></script>
 </head>
 
-<body dir="rtl" class="font-Yekan">
+<body dir="rtl" class="font-Yekan bg-slate-500">
 
 
-    <div class="w-10/12 md:w-2/4 m-auto bg-white shadow-md rounded px-8 pt-22 pb-8 mt-12 flex flex-col">
+    <div class="w-10/12 md:w-2/4 m-auto bg-white shadow-xl rounded px-12 py-16 mt-16 flex flex-col">
         <div class="mb-4">
             <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
             نام کاربری
@@ -25,14 +25,14 @@
             <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
             کلمه عبور
           </label>
-            <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password" type="password" placeholder="******************">
-            <p class="text-red text-xs">لطفا پسورد را وارد نمایید!</p>
+            <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password" type="password" placeholder="************">
+            <p id="enterPassword" class="text-red-800 text-xs"></p>
         </div>
-        <div class="flex items-center">
-            <button class="w-full bg-blue-900 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" id="signup">
+        <div class="items-center">
+            <button class="w-full bg-blue-600 hover:bg-blue-800 transition duration-500 hover:duration-500  text-white font-bold py-2 px-4 rounded" id="signup">
             ورود
           </button>
-            <a class="w-full text-center font-bold text-sm text-blue hover:text-blue-darker" href="#">
+            <a class="block w-full font-thin text-center text-sm text-blue pt-12 hover:text-blue-darker" href="#">
             کلمه‌عبور را فراموش کرده‌ام!
           </a>
         </div>
