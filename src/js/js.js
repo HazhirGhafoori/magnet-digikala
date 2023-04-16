@@ -1,6 +1,18 @@
 window.onload = function() {
     let username, password;
 
+    const users = {
+        User1: {
+            Name: "Hazhir Ghafoori",
+            Password: "12345",
+            Role: "ADMIN",
+        },
+        User2: {
+            Name: "Reza Alizade",
+            Password: "54321",
+            Role: "USER",
+        },
+    }
 
 
     document.getElementById("signup").onclick = function() {
