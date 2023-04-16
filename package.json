@@ -1,7 +1,7 @@
 {
 
     "scripts": {
-        "dev": "tailwindcss build -i ./src/styles.css -o ./src/css/css-tailwind.css --watch"
+        "dev": "tailwindcss build -i ./src/input.css -o ./dist/output.css --watch"
     },
 
     "devDependencies": {
