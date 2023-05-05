@@ -5,37 +5,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود</title>
+    <title>ثبت ویدیوهای مگنت</title>
 
     <link href="./dist/output.css" rel="stylesheet">
     <script src="./src/js/js.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body dir="rtl" class="font-Yekan bg-slate-500">
 
-
     <div class="w-10/12 md:w-2/4 m-auto bg-white shadow-xl rounded px-12 py-16 mt-16 flex flex-col">
         <div class="mb-4">
             <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-            نام کاربری
+            تیپ ویدیو
           </label>
-            <input class="font-thin shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="username" type="text" placeholder="نام کاربری خود را وارد نمایید!">
+            <select class="font-thin shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="selectTipOfVideo1" id="selectTipOfVideo">
+              <option class="font-thin" value="tip" selected>لطفا تیپ ویدیو رو انتخاب کن!</option>
+              <option class="font-thin" value="tip1">تیپ 1 | ویدیو کوتاه</option>
+              <option class="font-thin" value="tip2">تیپ 2 | ویدیو بلند</option>
+              <option class="font-thin" value="tip3">تیپ 3 | لایو</option>
+            </select>
+            <p id="paragraph"></p>
         </div>
-        <div class="mb-6">
-            <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-            کلمه عبور
-          </label>
-            <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password" type="password" placeholder="************">
-            <p id="enterPassword" class="text-red-800 text-xs"></p>
+
+
+        <div id="mainBox">
+
+            <div class="videoTip1-2Box" id="videoTip1-2Box">
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+              نام تلنت:
+              </label>
+                    <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="talentName" type="text" placeholder="اسمت چیه؟">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+              لینک کالا:
+              </label>
+                    <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="productLink" type="text" placeholder="لینک کالا رو از دیجی کالا کپی کن اینجا!">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+        لینک ترنسفر:
+      </label>
+                    <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="transferLink" type="text" placeholder="لینک ترنسفر ویدیو رو هم بذار اینجا!">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+        لینک مگنت:
+      </label>
+                    <input class="font-thin shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="magnetLink" type="text=" placeholder="لینک ویدیوت رو از مگنت کپی کن بذار اینجا!">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+      آیا از لیست پر فروش انتخاب شده است؟
+    </label>
+                    <select class="font-thin shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="selectIsPorFrosh" id="selectIsPorFrosh">
+      
+      <option class="font-thin" value="false">خیر</option>
+      <option class="font-thin" value="true">بله</option>
+    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2">
+    آیا سفارش برند/سلر بوده است؟
+  </label>
+                    <select class="font-thin shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="selectOrderSeller" id="selectOrderSeller">
+    
+    <option class="font-thin" value="false">خیر</option>
+    <option class="font-thin" value="true">بله</option>
+  </select>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="videoLive" id="videoLive">
+                <p>تست</p>
+            </div>
+
         </div>
+
+
+
+
         <div class="items-center">
-            <button class="w-full bg-blue-600 hover:bg-blue-800 transition duration-500 hover:duration-500  text-white font-bold py-2 px-4 rounded" id="signup">
-            ورود
+            <button class="w-full bg-blue-600 hover:bg-blue-800 transition duration-500 hover:duration-500  text-white font-bold py-2 px-4 rounded" id="copyButton">
+            بزن که کپی شه!
           </button>
+
+
+            <p class="font-thin" id="finalText"></p>
+
             <a class="block w-full font-thin text-center text-sm text-blue pt-12 hover:text-blue-darker" href="#">
-            کلمه‌عبور را فراموش کرده‌ام!
+            قدرت گرفته از هژیر غفوری
           </a>
         </div>
+
+
     </div>
 
 
