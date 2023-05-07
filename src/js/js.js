@@ -47,7 +47,7 @@ window.onload = function() {
     });
 
 
-    copyButtone.onclick = function() {
+    copyButtone.onclick = async function() {
 
         talentNamee = document.getElementById("talentName").value;
         productLinke1 = document.getElementById("productLink1").value;
@@ -77,7 +77,9 @@ window.onload = function() {
         productID3 = productLinke3.slice(0, productLinke3.search("/"));
         //End Of Split Product Ids
 
-
+        var htmlsrc = (await (await fetch('https://www.digikala.com/product/dkp-10738143')).text());
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        console.log(doc.title);
 
 
 
