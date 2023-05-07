@@ -621,6 +621,10 @@ video {
   width: 100%;
 }
 
+.w-11\/12 {
+  width: 91.666667%;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -819,5 +823,9 @@ video {
 @media (min-width: 768px) {
   .md\:w-2\/4 {
     width: 50%;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
   }
 }

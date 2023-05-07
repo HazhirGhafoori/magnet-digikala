@@ -49,79 +49,67 @@ window.onload = function() {
     });
 
 
-    copyButtone.onclick = async function() {
-
-        talentNamee = document.getElementById("talentName").value;
-        productLinke1 = document.getElementById("productLink1").value;
-        productLinke2 = document.getElementById("productLink2").value;
-        productLinke3 = document.getElementById("productLink3").value;
-        transferLinke = document.getElementById("transferLink").value;
-        magnetLinke = document.getElementById("magnetLink").value;
-
-        isPorFroshe = isPorFroshe.options[isPorFroshe.selectedIndex].text;
-        isSellerOrdere = isSellerOrdere.options[isSellerOrdere.selectedIndex].text;
-
-
-        //split Product IDs
-        productLinke1 = productLinke1.replace("https://www.digikala.com/product/", "");
-        productID1 = productLinke1.slice(0, (productLinke1.search("/")));
-
-        productLinke2 = productLinke2.replace("https://www.digikala.com/product/", "");
-        productID2 = productLinke2.slice(0, productLinke2.search("/"));
-
-        productLinke3 = productLinke3.replace("https://www.digikala.com/product/", "");
-        productID3 = productLinke3.slice(0, productLinke3.search("/"));
-        //End Of Split Product Ids
-
-
-        //go to get Name Of Product in DigiKala Product Page
-        productName1 = productLinke1.replace(productID1 + "/", "");
-        productName1 = decodeQueryParam(productName1);
-        productName2 = productLinke2.replace(productID2 + "/", "");
-        productName2 = decodeQueryParam(productName2);
-        productName3 = productLinke3.replace(productID3 + "/", "");
-        productName3 = decodeQueryParam(productName3);
-        //End of Go to get Name Of Product in DigiKala Product Page
-
-
-
-        if (tipOfVideo == "tip1") {
-            tipOfVideo = "تیپ 1";
-        } else if (tipOfVideo == "tip2") {
-            tipOfVideo = "تیپ 2";
-        } else if (tipOfVideo == "tip3") {
-            tipOfVideo = "تیپ 3 | لایو";
-        }
-
-        // console.log(productLinke1, "pr ID" + productID1);
-        var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
-        document.getElementById('finalText').innerHTML = msg;
-        copyToClipboard('#finalText');
-
-
-    }
-
-
-
-
-
-
     select.addEventListener("change", () => {
         tipOfVideo = select.options[select.selectedIndex].value;
-        if (tipOfVideo == "tip1") {
+        if (tipOfVideo == "tip1" || tipOfVideo == "tip2") {
             console.log("tip is 1");
+            copyButtone.onclick = async function() {
+
+                talentNamee = document.getElementById("talentName").value;
+                productLinke1 = document.getElementById("productLink1").value;
+                productLinke2 = document.getElementById("productLink2").value;
+                productLinke3 = document.getElementById("productLink3").value;
+                transferLinke = document.getElementById("transferLink").value;
+                magnetLinke = document.getElementById("magnetLink").value;
+
+                isPorFroshe = isPorFroshe.options[isPorFroshe.selectedIndex].text;
+                isSellerOrdere = isSellerOrdere.options[isSellerOrdere.selectedIndex].text;
 
 
+                //split Product IDs
+                productLinke1 = productLinke1.replace("https://www.digikala.com/product/", "");
+                productID1 = productLinke1.slice(0, (productLinke1.search("/")));
+
+                productLinke2 = productLinke2.replace("https://www.digikala.com/product/", "");
+                productID2 = productLinke2.slice(0, productLinke2.search("/"));
+
+                productLinke3 = productLinke3.replace("https://www.digikala.com/product/", "");
+                productID3 = productLinke3.slice(0, productLinke3.search("/"));
+                //End Of Split Product Ids
 
 
-        } else if (tipOfVideo == "tip2") {
-            console.log("tip is 2");
+                //go to get Name Of Product in DigiKala Product Page
+                productName1 = productLinke1.replace(productID1 + "/", "");
+                productName1 = decodeQueryParam(productName1);
+                productName2 = productLinke2.replace(productID2 + "/", "");
+                productName2 = decodeQueryParam(productName2);
+                productName3 = productLinke3.replace(productID3 + "/", "");
+                productName3 = decodeQueryParam(productName3);
+                //End of Go to get Name Of Product in DigiKala Product Page
+
+
+                if (tipOfVideo == "tip1") {
+                    tipOfVideo = "تیپ 1";
+                } else if (tipOfVideo == "tip2") {
+                    tipOfVideo = "تیپ 2";
+                } else if (tipOfVideo == "tip3") {
+                    tipOfVideo = "3 لایو";
+                }
+
+                // console.log(productLinke1, "pr ID" + productID1);
+                var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
+                document.getElementById('finalText').innerHTML = msg;
+                copyToClipboard('#finalText');
+
+
+            }
 
 
 
 
         } else if (tipOfVideo == "tip3") {
             console.log("tip is 3");
+
         }
     });
 
