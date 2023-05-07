@@ -1,4 +1,6 @@
 window.onload = function() {
+
+
     let tipOfVideo, selectTipOfVideo;
     tipOfVideo = "tip2";
     let select = document.getElementById("selectTipOfVideo");
@@ -60,12 +62,6 @@ window.onload = function() {
         isSellerOrdere = isSellerOrdere.options[isSellerOrdere.selectedIndex].text;
 
 
-        //go to get Name Of Product in DigiKala Product Page
-
-
-        //End of Go to get Name Of Product in DigiKala Product Page
-
-
         //split Product IDs
         productLinke1 = productLinke1.replace("https://www.digikala.com/product/", "");
         productID1 = productLinke1.slice(0, (productLinke1.search("/")));
@@ -77,15 +73,12 @@ window.onload = function() {
         productID3 = productLinke3.slice(0, productLinke3.search("/"));
         //End Of Split Product Ids
 
-        var htmlsrc = (await (await fetch('https://www.digikala.com/product/dkp-10738143')).text());
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        console.log(doc.title);
 
-
-
-
-
-
+        //go to get Name Of Product in DigiKala Product Page
+        productName1 = productLinke1.replace(productID1 + "/", "");
+        productName2 = productLinke2.replace(productID2 + "/", "");
+        productName3 = productLinke3.replace(productID3 + "/", "");
+        //End of Go to get Name Of Product in DigiKala Product Page
 
 
 
