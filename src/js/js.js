@@ -12,6 +12,7 @@ window.onload = function() {
         productLinke1, productLinke2, productLinke3,
         productName1, productName2, productName3,
         productID1, productID2, productID3,
+        talentNameLive, ProductLinkLive, DateOfLive, productNameLive, productIDlive,
         transferLinke,
         magnetLinke,
         isPorFroshe,
@@ -29,6 +30,11 @@ window.onload = function() {
     selectIsPorFrosh = document.getElementById("selectIsPorFrosh");
     selectOrderSeller = document.getElementById("selectOrderSeller");
     copyButtone = document.getElementById("copyButton");
+
+    talentNameLive = document.getElementById("talenNameLive");
+    ProductLinkLive = document.getElementById("ProductLinkLive");
+    DateOfLive = document.getElementById("DateOfLive");
+
 
 
 
@@ -88,6 +94,7 @@ window.onload = function() {
                 //End of Go to get Name Of Product in DigiKala Product Page
 
 
+
                 if (tipOfVideo == "tip1") {
                     tipOfVideo = "تیپ 1";
                 } else if (tipOfVideo == "tip2") {
@@ -109,7 +116,40 @@ window.onload = function() {
 
         } else if (tipOfVideo == "tip3") {
             console.log("tip is 3");
+            copyButtone.onclick = async function() {
 
+
+                talentNameLive = document.getElementById("talentNameLive").value;
+                ProductLinkLive = document.getElementById("ProductLinkLive").value;
+                DateOfLive = document.getElementById("DateOfLive").value;
+
+                //split Product IDs
+                ProductLinkLive = ProductLinkLive.replace("https://www.digikala.com/product/", "");
+                productIDlive = ProductLinkLive.slice(0, (ProductLinkLive.search("/")));
+
+                //End Of Split Product Ids
+
+
+                //go to get Name Of Product in DigiKala Product Page
+                productNameLive = ProductLinkLive.replace(productIDlive + "/", "");
+                productNameLive = decodeQueryParam(productNameLive);
+
+
+                if (tipOfVideo == "tip1") {
+                    tipOfVideo = "تیپ 1";
+                } else if (tipOfVideo == "tip2") {
+                    tipOfVideo = "تیپ 2";
+                } else if (tipOfVideo == "tip3") {
+                    tipOfVideo = "3 لایو";
+                }
+
+                // console.log(productLinke1, "pr ID" + productID1);
+                var msg = "📍نام تلنت: " + talentNameLive + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productNameLive + "<br>📍شناسه کالا(ها): <br>" + productIDlive + "<br>📍تاریخ اجرا لایو:<br>" + DateOfLive;
+                document.getElementById('finalText').innerHTML = msg;
+                copyToClipboard('#finalText');
+
+
+            }
         }
     });
 
