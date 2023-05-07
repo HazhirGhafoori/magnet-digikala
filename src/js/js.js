@@ -146,7 +146,7 @@ window.onload = function() {
                 }
 
                 // console.log(productLinke1, "pr ID" + productID1);
-                var msg = "📍نام تلنت: " + talentNameLive + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productNameLive + "<br>📍شناسه کالا(ها): <br>" + productIDlive + "<br>📍تاریخ اجرا لایو:<br>" + DateOfLive;
+                var msg = "📍نام تلنت: " + talentNameLive + "</br>📍تیپ ویدیو: " + tipOfVideo + "</br>📍اسم کالا(ها) در سایت: </br>" + productNameLive + "</br>📍شناسه کالا(ها): <br>" + productIDlive + "</br>📍تاریخ اجرا لایو:</br>" + DateOfLive;
                 document.getElementById('finalText').innerHTML = msg;
                 copyToClipboard('#finalText');
 
@@ -157,11 +157,26 @@ window.onload = function() {
 
 
     function copyToClipboard(element) {
-        var $temp = $("<textarea>");
+        // REPLACE <BR> AND CREATE CLEAN STRING
         var brRegex = /<br\s*[\/]?>/gi;
+        var cleanString = $(element).html().replace(brRegex, "\r\n");
+
+        // TEMP VAR TO SELECT TEXT FROM
+        var $temp = $("<textarea>");
+
+        // ADD TEMP TO BODY
         $("body").append($temp);
-        $temp.val($(element).html().replace(brRegex, "\r\n")).select();
+
+        // SET TEMP VALUE
+        $temp.val(cleanString);
+
+        // SELECT TEMP
+        $temp.select();
+
+        // EXECUTE COPY
         document.execCommand("copy");
+
+        // REMOVE TEMP ELEMENT
         $temp.remove();
     }
 
