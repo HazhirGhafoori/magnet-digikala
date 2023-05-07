@@ -76,8 +76,11 @@ window.onload = function() {
 
         //go to get Name Of Product in DigiKala Product Page
         productName1 = productLinke1.replace(productID1 + "/", "");
+        productName1 = decodeQueryParam(productName1);
         productName2 = productLinke2.replace(productID2 + "/", "");
+        productName2 = decodeQueryParam(productName2);
         productName3 = productLinke3.replace(productID3 + "/", "");
+        productName3 = decodeQueryParam(productName3);
         //End of Go to get Name Of Product in DigiKala Product Page
 
 
@@ -124,6 +127,11 @@ window.onload = function() {
 
 
 
-
+    function decodeQueryParam(p) {
+        var i = decodeURIComponent(p.replace(/\+/g, " "));
+        i = i.replace(/-/g, " ");
+        i = i.replace("/", "");
+        return i;
+    }
 
 };
