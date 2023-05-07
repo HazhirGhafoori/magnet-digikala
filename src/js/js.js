@@ -8,6 +8,8 @@ window.onload = function() {
     let divLive = document.getElementById("videoLive");
     let talentNamee,
         productLinke1, productLinke2, productLinke3,
+        productName1, productName2, productName3,
+        productID1, productID2, productID3,
         transferLinke,
         magnetLinke,
         isPorFroshe,
@@ -58,6 +60,33 @@ window.onload = function() {
         isSellerOrdere = isSellerOrdere.options[isSellerOrdere.selectedIndex].text;
 
 
+        //go to get Name Of Product in DigiKala Product Page
+
+
+        //End of Go to get Name Of Product in DigiKala Product Page
+
+
+        //split Product IDs
+        productLinke1 = productLinke1.replace("https://www.digikala.com/product/", "");
+        productID1 = productLinke1.slice(0, (productLinke1.search("/")));
+
+        productLinke2 = productLinke2.replace("https://www.digikala.com/product/", "");
+        productID2 = productLinke2.slice(0, productLinke2.search("/"));
+
+        productLinke3 = productLinke3.replace("https://www.digikala.com/product/", "");
+        productID3 = productLinke3.slice(0, productLinke3.search("/"));
+        //End Of Split Product Ids
+
+
+
+
+
+
+
+
+
+
+
         if (tipOfVideo == "tip1") {
             tipOfVideo = "تیپ 1";
         } else if (tipOfVideo == "tip2") {
@@ -66,8 +95,8 @@ window.onload = function() {
             tipOfVideo = "تیپ 3 | لایو";
         }
 
-        console.log(talentNamee + transferLinke + magnetLinke + isPorFroshe + isSellerOrdere);
-        var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت:" + productLinke1 + "<br>📍شناسه کالا(ها): " + productLinke1 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
+        // console.log(productLinke1, "pr ID" + productID1);
+        var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت:" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
         document.getElementById('finalText').innerHTML = msg;
 
 
