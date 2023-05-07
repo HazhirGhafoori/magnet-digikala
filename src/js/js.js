@@ -7,7 +7,7 @@ window.onload = function() {
     let divTip12 = document.getElementById("videoTip1-2Box");
     let divLive = document.getElementById("videoLive");
     let talentNamee,
-        productLinke,
+        productLinke1, productLinke2, productLinke3,
         transferLinke,
         magnetLinke,
         isPorFroshe,
@@ -15,7 +15,9 @@ window.onload = function() {
         copyButtone;
 
     talentNamee = document.getElementById("talentName");
-    productLinke = document.getElementById("productLink");
+    productLinke1 = document.getElementById("productLink1");
+    productLinke2 = document.getElementById("productLink2");
+    productLinke3 = document.getElementById("productLink3");
     transferLinke = document.getElementById("transferLink");
     magnetLinke = document.getElementById("magnetLink");
     isPorFroshe = document.getElementById("selectIsPorFrosh");
@@ -46,7 +48,9 @@ window.onload = function() {
     copyButtone.onclick = function() {
 
         talentNamee = document.getElementById("talentName").value;
-        productLinke = document.getElementById("productLink").value;
+        productLinke1 = document.getElementById("productLink1").value;
+        productLinke2 = document.getElementById("productLink2").value;
+        productLinke3 = document.getElementById("productLink3").value;
         transferLinke = document.getElementById("transferLink").value;
         magnetLinke = document.getElementById("magnetLink").value;
 
@@ -54,9 +58,16 @@ window.onload = function() {
         isSellerOrdere = isSellerOrdere.options[isSellerOrdere.selectedIndex].text;
 
 
+        if (tipOfVideo == "tip1") {
+            tipOfVideo = "تیپ 1";
+        } else if (tipOfVideo == "tip2") {
+            tipOfVideo = "تیپ 2";
+        } else if (tipOfVideo == "tip3") {
+            tipOfVideo = "تیپ 3 | لایو";
+        }
 
-        console.log(talentNamee + productLinke + transferLinke + magnetLinke + isPorFroshe + isSellerOrdere);
-        var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: تیپ 1" + "<br>📍اسم کالا(ها) در سایت:" + productLinke + "<br>📍شناسه کالا(ها): " + productLinke + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
+        console.log(talentNamee + transferLinke + magnetLinke + isPorFroshe + isSellerOrdere);
+        var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت:" + productLinke1 + "<br>📍شناسه کالا(ها): " + productLinke1 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
         document.getElementById('finalText').innerHTML = msg;
 
 
