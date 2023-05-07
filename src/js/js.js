@@ -105,7 +105,9 @@ window.onload = function() {
 
                 // console.log(productLinke1, "pr ID" + productID1);
                 var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: " + transferLinke + "<br>📍لینک مگنت: " + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ " + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ " + isSellerOrdere;
+
                 document.getElementById('finalText').innerHTML = msg;
+
                 copyToClipboard('#finalText');
 
 
@@ -155,9 +157,10 @@ window.onload = function() {
 
 
     function copyToClipboard(element) {
-        var $temp = $("<input>");
+        var $temp = $("<textarea>");
+        var brRegex = /<br\s*[\/]?>/gi;
         $("body").append($temp);
-        $temp.val($(element).text()).select();
+        $temp.val($(element).html().replace(brRegex, "\r\n")).select();
         document.execCommand("copy");
         $temp.remove();
     }
