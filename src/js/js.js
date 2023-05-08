@@ -1,14 +1,14 @@
 window.onload = function() {
 
 
-    let tipOfVideo, selectTipOfVideo;
+    var tipOfVideo, selectTipOfVideo;
     tipOfVideo = "tip2";
-    let select = document.getElementById("selectTipOfVideo");
+    var select = document.getElementById("selectTipOfVideo");
 
-    let mainBox = document.getElementById("mainBox");
-    let divTip12 = document.getElementById("videoTip1-2Box");
-    let divLive = document.getElementById("videoLive");
-    let talentNamee,
+    var mainBox = document.getElementById("mainBox");
+    var divTip12 = document.getElementById("videoTip1-2Box");
+    var divLive = document.getElementById("videoLive");
+    var talentNamee,
         productLinke1, productLinke2, productLinke3,
         productName1, productName2, productName3,
         productID1, productID2, productID3,
@@ -106,6 +106,36 @@ window.onload = function() {
                 // console.log(productLinke1, "pr ID" + productID1);
                 var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: <br>" + transferLinke + "<br>📍لینک مگنت: <br>" + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ <br>" + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ <br>" + isSellerOrdere;
 
+
+                fetch('https://sheetdb.io/api/v1/075378egpgsdr', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            data: [{
+                                'talentName': talentNamee,
+                                'talentTip': talentTip,
+                                'productName1': productName1,
+                                'productName2': productName2,
+                                'productName3': productName3,
+                                'productID1': productID1,
+                                'productID2': productID2,
+                                'productID3': productID3,
+                                'transferLink': transferLinke,
+                                'isPorFroosh': isPorFroshe,
+                                'isOrdered': isSellerOrdere
+
+                            }]
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((data) => console.log(data));
+
+
+
+
                 document.getElementById('finalText').innerHTML = msg;
 
                 copyToClipboard('#finalText');
@@ -187,5 +217,7 @@ window.onload = function() {
         i = i.replace("/", "");
         return i;
     }
+
+
 
 };
