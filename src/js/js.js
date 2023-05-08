@@ -16,8 +16,8 @@ window.onload = function() {
         transferLinke,
         magnetLinke,
         isPorFroshe,
-        isSellerOrdere,
-        copyButtone;
+        isSellerOrdere, successSendMsg, successSendMsgdiv,
+        copyButtone, sendButton;
 
     talentNamee = document.getElementById("talentName");
     productLinke1 = document.getElementById("productLink1");
@@ -30,6 +30,10 @@ window.onload = function() {
     selectIsPorFrosh = document.getElementById("selectIsPorFrosh");
     selectOrderSeller = document.getElementById("selectOrderSeller");
     copyButtone = document.getElementById("copyButton");
+    sendButton = document.getElementById("sendButton");
+    successSendMsg = document.getElementById("successSendMsg");
+    successSendMsgdiv = document.getElementById("successSendMsgdiv");
+
 
     talentNameLive = document.getElementById("talenNameLive");
     ProductLinkLive = document.getElementById("ProductLinkLive");
@@ -46,6 +50,7 @@ window.onload = function() {
 
     select.addEventListener("change", function handleChange(event) {
         if (event.target.value === "tip3") {
+
             divTip12.style.display = "none";
             divLive.style.display = "block";
         } else {
@@ -59,7 +64,7 @@ window.onload = function() {
         tipOfVideo = select.options[select.selectedIndex].value;
         if (tipOfVideo == "tip1" || tipOfVideo == "tip2") {
             console.log("tip is 1");
-            copyButtone.onclick = async function() {
+            sendButton.onclick = async function() {
 
                 talentNamee = document.getElementById("talentName").value;
                 productLinke1 = document.getElementById("productLink1").value;
@@ -111,38 +116,56 @@ window.onload = function() {
                 document.getElementById('finalText').innerHTML = msg;
 
                 copyToClipboard('#finalText');
-                var delayInMilliseconds = 2000; //1 second
+                var delayInMilliseconds = 4000; //1 second
 
 
-                fetch('https://sheetdb.io/api/v1/075378egpgsdr', {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            data: [{
-                                'id': "INCREMENT",
-                                'talentName': talentNamee,
-                                'talentTip': tipOfVideo,
-                                'productName1': productName1,
-                                'productName2': productName2,
-                                'productName3': productName3,
-                                'productID1': productID1,
-                                'productID2': productID2,
-                                'productID3': productID3,
-                                'transferLink': transferLinke,
-                                'isPorFroosh': isPorFroshe,
-                                'isOrdered': isSellerOrdere
+                copyButtone.onclick = async function() {
 
-                            }]
+                    fetch('https://sheetdb.io/api/v1/075378egpgsdr', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                data: [{
+                                    'id': "INCREMENT",
+                                    'talentName': talentNamee,
+                                    'talentTip': tipOfVideo,
+                                    'productName1': productName1,
+                                    'productName2': productName2,
+                                    'productName3': productName3,
+                                    'productID1': productID1,
+                                    'productID2': productID2,
+                                    'productID3': productID3,
+                                    'transferLink': transferLinke,
+                                    'isPorFroosh': isPorFroshe,
+                                    'isOrdered': isSellerOrdere
+
+                                }]
+                            })
                         })
-                    })
-                    .then((response) => response.json())
-                    .then((data) => console.log(data));
-                setTimeout(function() {
-                    document.getElementById('copyButton').innerHTML = "کپی شد! به شیت ارسال شد!";
-                }, delayInMilliseconds);
+                        .then((response) => response.json())
+                        .then((data) => console.log(data));
+
+                    successSendMsgdiv.style.display = "block";
+                    successSendMsg.style.display = "block";
+                    successSendMsg.innerHTML = "در حال ارسال به سرور...";
+
+
+                    if (data = 1) {
+
+                        setTimeout(function() {
+                            successSendMsg.innerHTML = "با موفقیت به سرور ارسال شد.";
+                        }, delayInMilliseconds);
+                    } else {
+                        successSendMsg.innerHTML = "ارسال به سرور با خطا روبرو شد";
+                    }
+
+
+
+                }
+
 
 
 
@@ -153,7 +176,7 @@ window.onload = function() {
 
         } else if (tipOfVideo == "tip3") {
             console.log("tip is 3");
-            copyButtone.onclick = async function() {
+            sendButton.onclick = async function() {
 
 
                 talentNameLive = document.getElementById("talentNameLive").value;
@@ -186,33 +209,45 @@ window.onload = function() {
                 var msg = "📍نام تلنت: " + talentNameLive + "</br>📍تیپ ویدیو: " + tipOfVideo + "</br>📍اسم کالا(ها) در سایت: </br>" + productNameLive + "</br>📍شناسه کالا(ها): <br>" + productIDlive + "</br>📍تاریخ اجرا لایو:</br>" + DateOfLive;
                 document.getElementById('finalText').innerHTML = msg;
                 copyToClipboard('#finalText');
-                var delayInMilliseconds = 2000; //1 second
+                var delayInMilliseconds = 4000; //1 second
+
+                copyButtone.onclick = async function() {
+                    fetch('https://sheetdb.io/api/v1/ghz2ftz1pd2f7', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                data: [{
+                                    'liveID': "INCREMENT",
+                                    'talentNameLive': talentNameLive,
+                                    'talentTipLive': tipOfVideo,
+                                    'productNameLive': productNameLive,
+                                    'productIDLive': productIDlive,
+                                    'dateOfLive': DateOfLive
 
 
-                fetch('https://sheetdb.io/api/v1/ghz2ftz1pd2f7', {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            data: [{
-                                'liveID': "INCREMENT",
-                                'talentNameLive': talentNameLive,
-                                'talentTipLive': tipOfVideo,
-                                'productNameLive': productNameLive,
-                                'productIDLive': productIDlive,
-                                'dateOfLive': DateOfLive
-
-
-                            }]
+                                }]
+                            })
                         })
-                    })
-                    .then((response) => response.json())
-                    .then((data) => console.log(data));
-                setTimeout(function() {
-                    document.getElementById('copyButton').innerHTML = "کپی شد! به شیت ارسال شد!";
-                }, delayInMilliseconds);
+                        .then((response) => response.json())
+                        .then((data) => console.log(data));
+                    successSendMsgdiv.style.display = "block";
+                    successSendMsg.style.display = "block";
+                    successSendMsg.innerHTML = "در حال ارسال به سرور...";
+
+
+                    if (data = 1) {
+
+                        setTimeout(function() {
+                            successSendMsg.innerHTML = "با موفقیت به سرور ارسال شد.";
+                        }, delayInMilliseconds);
+                    } else {
+                        successSendMsg.innerHTML = "ارسال به سرور با خطا روبرو شد";
+                    }
+                }
+
 
 
             }
