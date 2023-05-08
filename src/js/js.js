@@ -105,7 +105,7 @@ window.onload = function() {
 
                 // console.log(productLinke1, "pr ID" + productID1);
                 var msg = "📍نام تلنت: " + talentNamee + "<br>📍تیپ ویدیو: " + tipOfVideo + "<br>📍اسم کالا(ها) در سایت: <br>" + productName1 + "<br>" + productName2 + "<br>" + productName3 + "<br>📍شناسه کالا(ها): <br>" + productID1 + "<br>" + productID2 + "<br>" + productID3 + "<br>📍لینک ترنسفر: <br>" + transferLinke + "<br>📍لینک مگنت: <br>" + magnetLinke + "<br>📍آیا کالا(ها)ی این ویدیو رو از لیست‌ کالاهای پرفروش انتخاب کرده‌اید؟ <br>" + isPorFroshe + "<br>📍آیا این ویدیو سفارش برند/سلر بوده است؟ <br>" + isSellerOrdere;
-                // document.getElementById('finalText').innerHTML = msg;
+                document.getElementById('finalText').innerHTML = msg;
 
                 copyToClipboard('#finalText');
                 var delayInMilliseconds = 2000; //1 second
@@ -179,8 +179,35 @@ window.onload = function() {
 
                 // console.log(productLinke1, "pr ID" + productID1);
                 var msg = "📍نام تلنت: " + talentNameLive + "</br>📍تیپ ویدیو: " + tipOfVideo + "</br>📍اسم کالا(ها) در سایت: </br>" + productNameLive + "</br>📍شناسه کالا(ها): <br>" + productIDlive + "</br>📍تاریخ اجرا لایو:</br>" + DateOfLive;
-                // document.getElementById('finalText').innerHTML = msg;
+                document.getElementById('finalText').innerHTML = msg;
                 copyToClipboard('#finalText');
+                var delayInMilliseconds = 2000; //1 second
+
+
+                fetch('https://sheetdb.io/api/v1/075378egpgsdr', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            data: [{
+                                'liveID': "INCREMENT",
+                                'talentNameLive': talentNameLive,
+                                'talentTipLive': tipOfVideo,
+                                'productNameLive': productNameLive,
+                                'productIDLive': productIDlive,
+                                'dateOfLive': DateOfLive,
+
+
+                            }]
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((data) => console.log(data));
+                setTimeout(function() {
+                    document.getElementById('copyButton').innerHTML = "کپی شد! به شیت ارسال شد!";
+                }, delayInMilliseconds);
 
 
             }
