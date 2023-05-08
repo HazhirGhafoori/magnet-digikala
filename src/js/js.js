@@ -94,6 +94,9 @@ window.onload = function() {
                 //End of Go to get Name Of Product in DigiKala Product Page
 
 
+                magnetLinke = magnetLinke.replace("سلام!  این رو ببین، به نظرم جالبه ", "");
+                console.log(magnetLinke);
+
 
                 if (tipOfVideo == "tip1") {
                     tipOfVideo = "تیپ 1";
@@ -169,6 +172,8 @@ window.onload = function() {
                 productNameLive = decodeQueryParam(productNameLive);
 
 
+
+
                 if (tipOfVideo == "tip1") {
                     tipOfVideo = "تیپ 1";
                 } else if (tipOfVideo == "tip2") {
@@ -197,7 +202,7 @@ window.onload = function() {
                                 'talentTipLive': tipOfVideo,
                                 'productNameLive': productNameLive,
                                 'productIDLive': productIDlive,
-                                'dateOfLive': DateOfLive,
+                                'dateOfLive': DateOfLive
 
 
                             }]
