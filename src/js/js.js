@@ -115,8 +115,9 @@ window.onload = function() {
                         },
                         body: JSON.stringify({
                             data: [{
+                                'id': "INCREMENT",
                                 'talentName': talentNamee,
-                                'talentTip': talentTip,
+                                'talentTip': tipOfVideo,
                                 'productName1': productName1,
                                 'productName2': productName2,
                                 'productName3': productName3,
