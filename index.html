@@ -20,6 +20,9 @@
 <body dir="rtl" class="font-Yekan bg-slate-500">
 
     <div class="w-11/12 md:w-3/4 m-auto bg-white shadow-xl rounded px-2 py-6 mt-16 flex flex-col overflow-x-hidden">
+        <p class="block text-red-700 w-full font-bold text-center text-sm text-blue pt-5 hover:text-blue-darker" href="#">
+            ارسال ویدیو به تلنت دیجی کالا
+        </p>
         <div class="mb-4">
             <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
             تیپ ویدیو
@@ -157,9 +160,10 @@
 
             <p class="block text-red-700 w-full font-bold text-center text-sm text-blue pt-12 hover:text-blue-darker" href="#">
                 لطفا بعد از هر بار استفاده "رفرش کن!" رو بزن!
-                <br><br>
-                <p class="block text-center text-gray-900 text-xl font-thin">Develop by HazhirGhafoori</p>
-                </a>
+            </p>
+            <br><br>
+            <p class="block text-center text-gray-900 text-xl font-thin">Develop by HazhirGhafoori</p>
+            </a>
         </div>
 
 
@@ -168,5 +172,19 @@
 
     </div>
 </body>
+<script>
+    document.addEventListener("keydown", e => {
+        // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+        // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+        // THIS WILL ONLY DISABLE CONTROL AND F12
+        if (e.ctrlKey || e.keyCode == 123) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+    });
+</script>
+<script>
+    document.addEventListener("contextmenu", e => e.preventDefault(), false);
+</script>
 
 </html>
