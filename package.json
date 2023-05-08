@@ -14,6 +14,8 @@
 
     "dependencies": {
 
+        "@material-tailwind/html": "^2.0.0",
+
         "jsdom": "^22.0.0",
 
         "node-fetch": "^3.3.1"
