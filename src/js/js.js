@@ -286,17 +286,7 @@ window.onload = function() {
         i = i.replace("/", "");
         return i;
     }
-    mobiscroll.setOptions({
-        theme: 'ios',
-        themeVariant: 'light'
-    });
 
-    mobiscroll.datepicker('#DateOfLive', {
-        locale: mobiscroll.localeFa,
-        controls: ['date'],
-        rtl: true,
-        display: 'inline'
-    });
 
 
 };
